@@ -1,0 +1,15 @@
+#!/usr/bin/env python
+
+import os
+import shutil
+from transformers import AutoModelForCausalLM, AutoTokenizer
+
+CACHE_DIR = 'weights'
+
+if os.path.exists(CACHE_DIR):
+    shutil.rmtree(CACHE_DIR)
+
+os.makedirs(CACHE_DIR)
+
+model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen1.5-32B-Chat", cache_dir=CACHE_DIR)
+tokenizer = AutoTokenizer.from_pretrained("Qwen/Qwen1.5-32B-Chat", cache_dir=CACHE_DIR)
