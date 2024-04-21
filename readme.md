@@ -1,4 +1,4 @@
-# HF Transformer Models to Replicate
+# HF Transformers Models to Replicate
 
 This is a template/guide to push a model from Hugging Face to Replicate.
 
