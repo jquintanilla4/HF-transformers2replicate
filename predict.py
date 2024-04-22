@@ -14,12 +14,12 @@ CACHE_DIR = 'weights'
 
 # Shorthand identifier for a transformers model.
 # See https://huggingface.co/models?library=transformers for a list of models.
-MODEL_NAME = 'Qwen/Qwen1.5-32B-Chat'
+MODEL_NAME = 'Qwen/CodeQwen1.5-7B-AWQ'
 
 class Predictor(BasePredictor):
     def setup(self):
         self.device = 'cuda' if torch.cuda.is_available() else 'cpu'
-        self.model = AutoModelForCausalLM.from_pretrained.from_pretrained(MODEL_NAME, cache_dir=CACHE_DIR, local_files_only=True)
+        self.model = AutoModelForCausalLM.from_pretrained(MODEL_NAME, torch_dtype=torch.float16, cache_dir=CACHE_DIR, local_files_only=True)
         self.model.to(self.device)
         self.tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME, cache_dir=CACHE_DIR, local_files_only=True)
 

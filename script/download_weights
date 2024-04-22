@@ -2,6 +2,7 @@
 
 import os
 import shutil
+import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 CACHE_DIR = 'weights'
@@ -11,5 +12,5 @@ if os.path.exists(CACHE_DIR):
 
 os.makedirs(CACHE_DIR)
 
-model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen1.5-32B-Chat", cache_dir=CACHE_DIR)
-tokenizer = AutoTokenizer.from_pretrained("Qwen/Qwen1.5-32B-Chat", cache_dir=CACHE_DIR)
+model = AutoModelForCausalLM.from_pretrained("Qwen/CodeQwen1.5-7B-AWQ", cache_dir=CACHE_DIR)
+tokenizer = AutoTokenizer.from_pretrained("Qwen/CodeQwen1.5-7B-AWQ", cache_dir=CACHE_DIR)
